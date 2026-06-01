@@ -82,6 +82,10 @@ body{
     height:50px;
     border-radius:12px;
 }
+.form-control:hover{
+    cursor: pointer;
+    border: 2px solid #2563eb;
+}
 
 .password-wrapper{
     position:relative;
@@ -96,7 +100,7 @@ body{
     color:#64748b;
 }
 
-.btn-login{
+div .btn-login{
     background:#2563eb;
     color:white;
     height:50px;
@@ -105,8 +109,9 @@ body{
     font-weight:600;
 }
 
-.btn-login:hover{
+div .btn-login:hover{
     background:#1d4ed8;
+    color:white;
 }
 
 .signup-link{

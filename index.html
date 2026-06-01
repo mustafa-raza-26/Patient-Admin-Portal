@@ -40,7 +40,7 @@
 
                         <div class="mb-3">
                             <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" placeholder="admin@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="admin@example.com">
                         </div>
 
                         <div class="mb-3">
@@ -61,7 +61,7 @@
                             <a href="#">Forgot Password?</a>
 
                         </div>
-                        <button type="submit"class="btn btn-login w-100">Login</button>
+                        <button type="submit" class="btn btn-login w-100" id="login">Login</button>
                     </form>
                     <div class="signup-link">Don't have an account?<a href="./signup.html">Sign Up</a>
                     </div>
@@ -73,7 +73,9 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>    
+    <script src="supabase.js"></script>
     <script src="login.js"></script>
 </body>
 </html>
