@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f8fafc;
+}
+
+.signup-section{
+    min-height:100vh;
+}
+
+.left-side{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.icon-box{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.icon-box i{
+    font-size:60px;
+}
+
+.left-side h1{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.left-side p{
+    text-align:center;
+    max-width:400px;
+    opacity:.9;
+}
+
+.right-side{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.signup-card{
+    width:100%;
+    max-width:500px;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.signup-card h2{
+    font-weight:700;
+    color:#0f172a;
+}
+
+.signup-card p{
+    color:#64748b;
+}
+
+.form-control{
+    height:50px;
+    border-radius:12px;
+}
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper i{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#64748b;
+}
+
+.btn-signup{
+    background:#2563eb;
+    color:white;
+    height:50px;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+}
+
+.btn-signup:hover{
+    background:#1d4ed8;
+    color:white;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    text-decoration:none;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+
+    .left-side{
+        display:none;
+    }
+
+    .signup-card{
+        padding:25px;
+    }
+
+}

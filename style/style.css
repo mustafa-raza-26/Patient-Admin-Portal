@@ -1,0 +1,444 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    overflow-x:hidden;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.dashboard-wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar{
+    width:270px;
+    background:#fff;
+    border-right:1px solid #e5e7eb;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    z-index:1000;
+    padding:25px 15px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:0 10px;
+}
+
+.logo-icon{
+    width:50px;
+    height:50px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.logo-area h5{
+    font-size:18px;
+    font-weight:700;
+}
+
+.logo-area small{
+    color:#94a3b8;
+}
+
+.sidebar-menu{
+    list-style:none;
+    margin-top:35px;
+    padding-left:0;
+}
+
+.sidebar-menu li{
+    margin-bottom:8px;
+}
+
+.sidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:#64748b;
+    padding:12px 15px;
+    border-radius:12px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.sidebar-menu a i{
+    font-size:18px;
+}
+
+.sidebar-menu a:hover{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.sidebar-menu a.active{
+    background:#2563eb;
+    color:white;
+}
+
+.admin-card{
+    position:absolute;
+    bottom:25px;
+    left:15px;
+    right:15px;
+
+    background:#f8fafc;
+    border-radius:15px;
+    padding:15px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#14b8a6;
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:14px;
+    font-weight:700;
+}
+
+.admin-card h6{
+    margin:0;
+    font-size:14px;
+}
+
+.admin-card small{
+    color:#64748b;
+}
+
+/* =========================
+   Main Content
+========================= */
+
+.main-content{
+    margin-left:270px;
+    width:calc(100% - 270px);
+}
+
+/* =========================
+   Navbar
+========================= */
+
+.topbar{
+    background:white;
+    border-bottom:1px solid #e5e7eb;
+
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
+}
+
+.search-box{
+    width:500px;
+    position:relative;
+}
+
+.search-box i{
+    position:absolute;
+    top:50%;
+    left:15px;
+    transform:translateY(-50%);
+    color:#94a3b8;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+
+    background:#f1f5f9;
+
+    padding:12px 15px 12px 45px;
+
+    border-radius:12px;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.notification-btn{
+    width:42px;
+    height:42px;
+
+    border:none;
+    background:#f1f5f9;
+
+    border-radius:50%;
+
+    font-size:18px;
+}
+
+.profile-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile-box h6{
+    margin:0;
+    font-size:14px;
+}
+
+.profile-box small{
+    color:#64748b;
+}
+
+/* =========================
+   Content
+========================= */
+
+.content-area{
+    padding:30px;
+}
+
+.page-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-title h2{
+    font-weight:700;
+}
+
+.page-title p{
+    color:#64748b;
+    margin-bottom:0;
+}
+
+/* =========================
+   Stats Cards
+========================= */
+
+.stats-card{
+    background:white;
+    border-radius:20px;
+    padding:22px;
+    border:1px solid #eef2f7;
+    box-shadow:0 2px 12px rgba(0,0,0,.03);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.card-top span{
+    color:#64748b;
+    font-size:14px;
+}
+
+.stats-card h3{
+    margin-top:18px;
+    margin-bottom:8px;
+    font-size:34px;
+    font-weight:700;
+}
+
+.stats-card p{
+    color:#10b981;
+    margin:0;
+    font-size:14px;
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+}
+
+.blue{
+    background:#dbeafe;
+    color:#2563eb;
+}
+
+.green{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.purple{
+    background:#ede9fe;
+    color:#7c3aed;
+}
+
+.orange{
+    background:#ffedd5;
+    color:#ea580c;
+}
+
+/* =========================
+   Charts
+========================= */
+
+.chart-card,
+.table-card,
+.doctor-card{
+    background:white;
+    border-radius:20px;
+    border:1px solid #eef2f7;
+    padding:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.03);
+}
+
+.card-header-custom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.card-header-custom h5{
+    margin:0;
+    font-weight:600;
+}
+
+.chart-card canvas{
+    width:100% !important;
+    height:300px !important;
+}
+
+/* =========================
+   Table
+========================= */
+
+.table th{
+    color:#64748b;
+    font-size:14px;
+    font-weight:600;
+}
+
+.table td{
+    vertical-align:middle;
+}
+
+/* =========================
+   Doctor Availability
+========================= */
+
+.doctor-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 0;
+    border-bottom:1px solid #f1f5f9;
+}
+
+.doctor-item:last-child{
+    border-bottom:none;
+}
+
+/* =========================
+   Mobile Menu Button
+========================= */
+
+.menu-btn{
+    border:none;
+    background:none;
+    font-size:28px;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:992px){
+
+    .sidebar{
+        left:-100%;
+        transition:.4s;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .main-content{
+        width:100%;
+        margin-left:0;
+    }
+
+    .search-box{
+        width:250px;
+    }
+
+    .page-title{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+}
+
+@media(max-width:768px){
+
+    .topbar{
+        padding:15px;
+    }
+
+    .search-box{
+        display:none;
+    }
+
+    .profile-box div{
+        display:none;
+    }
+
+    .content-area{
+        padding:15px;
+    }
+
+    .stats-card h3{
+        font-size:28px;
+    }
+}
