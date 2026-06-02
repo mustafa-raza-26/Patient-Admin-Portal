@@ -14,6 +14,10 @@
     <div class="container-fluid">
         <div class="row login-section">
 
+            <div id="successMessage" class="success-message">
+                Login Successfully! 🎉🎉🎉
+            </div>
+
             <!-- Left Side -->
 
             <div class="col-md-6 left-side">
@@ -40,13 +44,13 @@
 
                         <div class="mb-3">
                             <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="admin@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="admin@example.com" required>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-2">
                             <label class="form-label">Password</label>
                             <div class="password-wrapper">
-                                <input type="password" id="password" class="form-control" placeholder="Enter password">
+                                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
                                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                             </div>
                         </div>
@@ -58,9 +62,11 @@
                                 <label class="form-check-label">Remember me</label>
                             </div>
 
-                            <a href="#">Forgot Password?</a>
+                            <a href="" id="forgot_password">Forgot Password?</a>
 
                         </div>
+                        <div class="mb-3 loginError" id="loginError"></div>
+
                         <button type="submit" class="btn btn-login w-100" id="login">Login</button>
                     </form>
                     <div class="signup-link">Don't have an account?<a href="./signup.html">Sign Up</a>

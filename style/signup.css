@@ -132,8 +132,53 @@ div .btn-signup:hover{
         display:none;
     }
 
+    .signup-section{
+        justify-content: center;
+    }
+
     .signup-card{
         padding:25px;
     }
 
+}
+
+
+div .success-message {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 9999;
+    transition: top 0.4s ease;
+    width: 400px;
+    text-align: center;
+}
+
+.success-message.show {
+    top: 20px;
+}
+
+@media (max-width: 768px) {
+    div .success-message {
+    width: 50%;
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+    div .success-message {
+        width: 85%;
+        left: 50%;
+        font-size: 13px;
+        padding: 10px 15px;
+        border-radius: 10px;
+    }
 }

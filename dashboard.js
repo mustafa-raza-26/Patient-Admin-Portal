@@ -1,10 +1,12 @@
-// ======================
-// Sidebar Toggle
-// ======================
-
+const dr_Name = document.getElementById('dr_name');
+const drName = document.getElementById('drname');
+const avator = document.getElementById('avator');
+const avator2 = document.getElementById('avator2');
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
+const revenueCtx = document.getElementById("revenueChart");
 
+// Sidebar Toggle
 if(menuBtn){
 
     menuBtn.addEventListener("click", ()=>{
@@ -15,19 +17,14 @@ if(menuBtn){
 
 }
 
-
-// ======================
 // Revenue Chart
-// ======================
 
-const revenueCtx = document.getElementById("revenueChart");
 
 if(revenueCtx){
 
 new Chart(revenueCtx, {
 
     type: "line",
-
     data: {
 
         labels: [
@@ -110,10 +107,7 @@ new Chart(revenueCtx, {
 }
 
 
-// ======================
 // Appointment Chart
-// ======================
-
 const appointmentCtx =
 document.getElementById("appointmentChart");
 
@@ -133,12 +127,7 @@ new Chart(appointmentCtx, {
 
         datasets: [{
 
-            data: [
-                65,
-                25,
-                10
-            ],
-
+            data: [65,25,10],
             backgroundColor: [
 
                 "#2563eb",
@@ -155,21 +144,13 @@ new Chart(appointmentCtx, {
     options: {
 
         responsive: true,
-
         maintainAspectRatio: false,
-
         cutout: "70%",
-
         plugins: {
-
             legend: {
-
                 position: "bottom"
-
             }
-
         }
-
     }
 
 });
@@ -177,10 +158,7 @@ new Chart(appointmentCtx, {
 }
 
 
-// ======================
 // Close Sidebar On Mobile
-// ======================
-
 document.addEventListener("click", function(e){
 
     if(
@@ -188,9 +166,37 @@ document.addEventListener("click", function(e){
         !sidebar.contains(e.target) &&
         !menuBtn.contains(e.target)
     ){
-
         sidebar.classList.remove("show");
-
     }
 
 });
+
+window.onload = async () => {
+    const { data, error } = await client.auth.getSession()   
+    if (error) {
+        console.log(error.message);
+    }else{
+        console.log(data);
+
+        let user_id = data.session.user.user_metadata.FullName
+        console.log(user_id); 
+        let firstLetter = user_id.charAt(0);
+        console.log(firstLetter);
+        
+        dr_Name.innerText = `Dr. ${user_id}`
+        drName.innerText = `Dr. ${user_id}`
+        avator.innerText = firstLetter
+        
+        // const { data:fetchData, error:fetchError } = await client
+        // .from('Admin_Portal_User')
+        // .select('*')
+        // .eq('user_id', user_id)
+
+        // if (fetchError) {
+        //     console.log(fetchError.message);
+        // }else{
+        //     console.log(fetchData);
+        // }
+
+    }
+}

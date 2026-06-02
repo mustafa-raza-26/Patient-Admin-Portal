@@ -1,7 +1,9 @@
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const login = document.getElementById('login');
-const togglePassword = document.getElementById("togglePassword");
+const togglePassword = document.getElementById('togglePassword');
+const forgot_password = document.getElementById('forgot_password');
+const loginError = document.getElementById('loginError');
 
 togglePassword.addEventListener("click",()=>{
 
@@ -13,17 +15,45 @@ togglePassword.addEventListener("click",()=>{
 
 });
 
+function showSuccess() {
+  const msg = document.getElementById("successMessage");
+
+  msg.classList.add("show");
+
+  setTimeout(() => {
+    msg.classList.remove("show");
+    window.location.href = './dashboard.html';
+}, 2000);
+}
+
 login.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const { data, error } = await client.auth.signInWithPassword({
-        email: email.value,
-        password: password.value,
-    })
-    if (error) {
-        console.log(error.message);
-    }else{
-        console.log(data);
+    if (email.value === '' && password.value === '') {
+        loginError.innerText = 'Validation Error Plz Fill All Fields';
+    } 
+    else if (email.value === '') {  
+        loginError.innerText = 'Validation Error Enter Your Email';
+    } 
+    else if (password.value === '') {
+        loginError.innerText = 'Validation Error Enter Your Password';
+    } 
+    else {
+        const { data, error } = await client.auth.signInWithPassword({
+            email: email.value,
+            password: password.value,
+        })
+        if (error) {
+            loginError.innerText = error.message;
+        }else{
+            showSuccess();   
+        }
     }
+})
+
+forgot_password.addEventListener('click', async () => {
+    const { data, error } = await client.auth.resetPasswordForEmail(email, {
+        redirectTo: 'https://example.com/update-password',
+    })
     
 })

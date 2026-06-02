@@ -14,6 +14,10 @@
     <div class="container-fluid">
         <div class="row signup-section">
 
+            <div id="successMessage" class="success-message">
+                User Created Successfully! 🎉🎉🎉
+            </div>
+
             <!-- Left Side -->
             <div class="col-md-6 left-side">
                 <div class="icon-box">
@@ -37,30 +41,30 @@
                     <form>
                         <div class="mb-3">
                             <label class="form-label" for="name">Full Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter full name">
+                            <input type="text" class="form-control" id="name" placeholder="Enter full name" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" placeholder="admin@example.com">
+                            <input type="email" class="form-control" id="email" placeholder="admin@example.com" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="number">Phone Number</label>
-                            <input type="tel"class="form-control" id="number" placeholder="+92 300 1234567">
+                            <input type="tel"class="form-control" id="number" placeholder="+92 300 1234567" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label" for="password">Password</label>
                             <div class="password-wrapper">
-                                <input type="password" id="password" class="form-control" placeholder="Enter password">
+                                <input type="password" id="password" class="form-control" placeholder="Enter password" required>
                                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label" for="confirm-password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password">
+                            <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password" required>
                         </div>
 
                         <div class="mb-4 passwordError" id="passwordError"></div>
@@ -68,10 +72,7 @@
                         <button type="submit" id="create_Account" class="btn btn-signup w-100">Create Account</button>
                     </form>
 
-                    <div class="login-link"> 
-                        Already have an account?
-                        <a href="login.html">Login</a>
-                    </div>
+                    <div class="login-link">Already have an account?<a href="./index.html">Login</a></div>
                 </div>
             </div>
 

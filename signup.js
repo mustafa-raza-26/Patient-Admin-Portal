@@ -3,7 +3,7 @@ const email = document.getElementById('email');
 const number = document.getElementById('number');
 const password = document.getElementById('password');
 const confirm_password = document.getElementById('confirm-password');
-const passwordErrorDisplay = document.getElementById('passwordError');
+const signupError = document.getElementById('passwordError');
 const create_Account = document.getElementById("create_Account");
 const togglePassword = document.getElementById("togglePassword");
 
@@ -18,29 +18,55 @@ togglePassword.addEventListener("click",()=>{
 });
 
 
+function showSuccess() {
+  const msg = document.getElementById("successMessage");
+
+  msg.classList.add("show");
+
+  setTimeout(() => {
+    msg.classList.remove("show");
+    window.location.href = './index.html';
+}, 3000);
+}
+
 create_Account.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    if (password.value != confirm_password.value) {
-        passwordErrorDisplay.innerText = 'Password Mismatch'
-    }
-    else{
+    if (FullName.value === '' && email.value === '' && number.value === '' && password.value === '' && confirm_password.value === '') {
+    signupError.innerText = 'Validation Error Plz Fill All Fields';
+    } 
+    else if (FullName.value === '') {  
+        signupError.innerText = 'Validation Error Enter Your Full Name';
+    } 
+    else if (email.value === '') {  
+        signupError.innerText = 'Validation Error Enter Your Email';
+    } 
+    else if (number.value === '') {  
+        signupError.innerText = 'Validation Error Enter Your Phone Number';
+    } 
+    else if (password.value === '') {
+        signupError.innerText = 'Validation Error Enter Your Password';
+    } 
+    else if (confirm_password.value === '') {
+        signupError.innerText = 'Validation Error Confirm Your Password';
+    } 
+    else if (password.value !== confirm_password.value) {
+        signupError.innerText = 'Validation Error Passwords Do Not Match';
+    } 
+    else {
 
-        // User Create
         const { data:authData, error:authError } = await client.auth.signUp({
             email: email.value,
             password: password.value,
             options: {
                 data: {
-                    FullName: FullName.value,
+                    full_name: FullName.value,
+                    phone_number: number.value
                 }
             }
         })
         if (authError) {
             console.log(authError.message);
-        }else{
-            console.log(authData);
-            alert('user auth')
         }
 
         // Data in Table
@@ -54,13 +80,8 @@ create_Account.addEventListener('click', async (e) => {
         })
         if (error) {
             console.log(error.message);
-        }else{alert('table data insert')}
-
-        FullName.value = ''
-        email.value = ''
-        number.value = ''
-        password.value = ''
-        confirm_password.value = ''
-
+        }else{
+            showSuccess();
+        }
     }
 })
