@@ -1,5 +1,6 @@
 const drName = document.querySelectorAll('.dr_name');
-const avator = document.querySelectorAll('.avatar')
+const avator = document.querySelectorAll('.avatar');
+const appoinments =document.getElementById('appoinments');
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 const revenueCtx = document.getElementById("revenueChart");
@@ -191,9 +192,62 @@ window.onload = async () => {
         .toUpperCase();
         
         avator.forEach(el => el.innerText = initials);
-        
-        
-        
     }
-
 }
+
+// window.addEventListener('load', async () => {
+//     const { data, error } = await client
+//     .from('appoinmentForm')
+//     .select('name, doctor, time')
+//     // .eq()
+//     if (error) {
+//         console.log(error.message);
+//     } else{
+//         console.log(data);
+        
+//         for (let i = 0; i < data.length; i++) {
+//             appoinments.innerHTML +=`
+//                 <tr>
+//                     <td>${data[i].name}</td>
+//                     <td>${data[i].doctor}</td>
+//                     <td>${data[i].time}</td>
+//                     <td><span class="badge bg-warning">Confirmed</span></td>
+//                 </tr>
+//             `
+//         }
+
+//     }
+// })
+
+window.addEventListener('load', async () => {
+    const { data, error } = await client
+        .from('appoinmentForm')
+        .select('name, doctor, time');
+
+    if (error) {
+        console.log(error.message);
+    } else {
+        console.log(data);
+
+        for (let i = 0; i < data.length; i++) {
+            const doctorName = data[i].doctor.replace(/\s*\(.*?\)\s*/g, '');
+
+            // Time ko 12-hour format mein convert karna
+            const time12 = new Date(`1970-01-01T${data[i].time}`)
+                .toLocaleTimeString('en-US', {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                });
+
+            appoinments.innerHTML += `
+                <tr>
+                    <td>${data[i].name}</td>
+                    <td>${doctorName}</td>
+                    <td>${time12}</td>
+                    <td><span class="badge bg-warning">Confirmed</span></td>
+                </tr>
+            `;
+        }
+    }
+});

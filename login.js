@@ -61,10 +61,14 @@ window.onload = async () => {
 
     console.log(session);
 
-    if (session) {
+    if (session === null) {
+        window.location.href = './index.html';
+    }else{
         window.location.href = './dashboard.html';
     }
 }
+
+
 
 forgot_password.addEventListener('click', async () => {
     const { data, error } = await client.auth.resetPasswordForEmail(email, {
