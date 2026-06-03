@@ -51,6 +51,21 @@ login.addEventListener('click', async (e) => {
     }
 })
 
+window.onload = async () => {
+    const { data:{session}, error } = await client.auth.getSession();
+
+    if (error) {
+        console.log(error.message);
+        return;
+    }
+
+    console.log(session);
+
+    if (session) {
+        window.location.href = './dashboard.html';
+    }
+}
+
 forgot_password.addEventListener('click', async () => {
     const { data, error } = await client.auth.resetPasswordForEmail(email, {
         redirectTo: 'https://example.com/update-password',

@@ -1,4 +1,5 @@
-const FullName = document.getElementById('name');
+const fullName = document.getElementById('name');
+const specialty = document.getElementById('specialty');
 const email = document.getElementById('email');
 const number = document.getElementById('number');
 const password = document.getElementById('password');
@@ -32,10 +33,10 @@ function showSuccess() {
 create_Account.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    if (FullName.value === '' && email.value === '' && number.value === '' && password.value === '' && confirm_password.value === '') {
+    if (fullName.value === '' && email.value === '' && number.value === '' && password.value === '' && confirm_password.value === '') {
     signupError.innerText = 'Validation Error Plz Fill All Fields';
     } 
-    else if (FullName.value === '') {  
+    else if (fullName.value === '') {  
         signupError.innerText = 'Validation Error Enter Your Full Name';
     } 
     else if (email.value === '') {  
@@ -60,7 +61,7 @@ create_Account.addEventListener('click', async (e) => {
             password: password.value,
             options: {
                 data: {
-                    full_name: FullName.value,
+                    full_name: fullName.value,
                     phone_number: number.value
                 }
             }
@@ -73,7 +74,8 @@ create_Account.addEventListener('click', async (e) => {
         const { error } = await client
         .from('Admin_Portal_User')
         .insert({
-            name : FullName.value,
+            name : fullName.value,
+            specialty : specialty.value,
             email : email.value,
             number : number.value,
             password : password.value,

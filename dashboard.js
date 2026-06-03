@@ -1,7 +1,5 @@
-const dr_Name = document.getElementById('dr_name');
-const drName = document.getElementById('drname');
-const avator = document.getElementById('avator');
-const avator2 = document.getElementById('avator2');
+const drName = document.querySelectorAll('.dr_name');
+const avator = document.querySelectorAll('.avatar')
 const menuBtn = document.querySelector(".menu-btn");
 const sidebar = document.querySelector(".sidebar");
 const revenueCtx = document.getElementById("revenueChart");
@@ -178,25 +176,24 @@ window.onload = async () => {
     }else{
         console.log(data);
 
-        let user_id = data.session.user.user_metadata.FullName
-        console.log(user_id); 
-        let firstLetter = user_id.charAt(0);
-        console.log(firstLetter);
-        
-        dr_Name.innerText = `Dr. ${user_id}`
-        drName.innerText = `Dr. ${user_id}`
-        avator.innerText = firstLetter
-        
-        // const { data:fetchData, error:fetchError } = await client
-        // .from('Admin_Portal_User')
-        // .select('*')
-        // .eq('user_id', user_id)
+        let user_id = data.session.user.user_metadata.FullName;
 
-        // if (fetchError) {
-        //     console.log(fetchError.message);
-        // }else{
-        //     console.log(fetchData);
-        // }
+        // Name display
+        drName.forEach(element => {
+            element.innerText = `Dr. ${user_id}`;
+        });
 
+        //Letter Display
+        const initials = user_id
+        .split(" ")
+        .map(word => word[0])
+        .join("")
+        .toUpperCase();
+        
+        avator.forEach(el => el.innerText = initials);
+        
+        
+        
     }
+
 }
