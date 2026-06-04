@@ -210,13 +210,6 @@ window.addEventListener('load', async () => {
     }
 });
 
-document.getElementById('logout').addEventListener('click', async () => {
-    const { error } = await client.auth.signOut({ scope: 'local' })
-    console.log(error.message);
-    window.location.href = './index.html'
-    
-})
-
 
 
 // const drName = document.querySelectorAll('.dr_name');
@@ -369,14 +362,14 @@ document.getElementById('logout').addEventListener('click', async () => {
 // });
 
 
-// // Logout Event Listener (Fixed crash issue)
-// const logoutBtn = document.getElementById('logout');
-// if (logoutBtn) {
-//     logoutBtn.addEventListener('click', async () => {
-//         const { error } = await client.auth.signOut({ scope: 'local' });
-//         if (error) {
-//             console.log("Logout error:", error.message);
-//         }
-//         window.location.href = './index.html';
-//     });
-// }
+// Logout Event Listener (Fixed crash issue)
+const logoutBtn = document.getElementById('logout');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+        const { error } = await client.auth.signOut({ scope: 'local' });
+        if (error) {
+            console.log("Logout error:", error.message);
+        }
+        window.location.href = './index.html';
+    });
+}
