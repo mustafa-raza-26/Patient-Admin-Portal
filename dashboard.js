@@ -251,3 +251,9 @@ window.addEventListener('load', async () => {
         }
     }
 });
+
+document.getElementById('logout').addEventListener('click', async () => {
+    const { error } = await client.auth.signOut({ scope: 'local' })
+    console.log(error.message);
+    
+})
