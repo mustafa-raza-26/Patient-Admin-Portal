@@ -66,21 +66,10 @@
 // //     }
 // // }
 
-
-
-// // forgot_password.addEventListener('click', async () => {
-// //     const { data, error } = await client.auth.resetPasswordForEmail(email, {
-// //         redirectTo: 'https://example.com/update-password',
-// //     })
-    
-// // })
-
-
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const login = document.getElementById('login');
 const togglePassword = document.getElementById('togglePassword');
-const forgot_password = document.getElementById('forgot_password');
 const loginError = document.getElementById('loginError');
 
 // Toggle Password Visibility
@@ -132,15 +121,8 @@ login.addEventListener('click', async (e) => {
 
 // Check Session on Page Load (Prevents re-login if already authenticated)
 window.addEventListener('DOMContentLoaded', async () => {
-    const { data, error } = await client.auth.getSession();
-
-    if (error) {
-        console.log(error.message);
-        return;
-    }
-
-    // Fixed loop: If session exists, send them to dashboard. If not, do nothing so they can log in.
-    if (data && data.session) {
+    const {data: { session }} = await client.auth.getSession();
+    if (session) {
         window.location.href = './dashboard.html';
     }
 });

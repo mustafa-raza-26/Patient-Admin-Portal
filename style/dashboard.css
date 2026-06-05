@@ -25,17 +25,42 @@ body{
 /* =========================
    Sidebar
 ========================= */
-
-.sidebar{
+ .sidebar{
     width:270px;
     background:#fff;
     border-right:1px solid #e5e7eb;
     position:fixed;
     left:0;
     top:0;
-    height:100%;
-    z-index:1000;
+    height:100vh;
     padding:25px 15px;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Sirf menu scroll hoga */
+.sidebar-menu{
+    list-style:none;
+    padding-left:0;
+    margin-top:35px;
+    height:calc(100vh - 220px);
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding-right:10px;
+}
+
+/* Scrollbar Styling */
+.sidebar-menu::-webkit-scrollbar{
+    width:10px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:10px;
+}
+
+.sidebar-menu::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
 }
 
 .logo-area{
@@ -64,12 +89,6 @@ body{
 
 .logo-area small{
     color:#94a3b8;
-}
-
-.sidebar-menu{
-    list-style:none;
-    margin-top:35px;
-    padding-left:0;
 }
 
 .sidebar-menu li{
