@@ -1,64 +1,57 @@
-// Show / Hide Password
-
-const toggleButtons = document.querySelectorAll(".toggle-password");
-
-toggleButtons.forEach((icon)=>{
-
-    icon.addEventListener("click",()=>{
-
-        const target = document.getElementById(icon.dataset.target);
-        if(target.type === "password"){
-
-            target.type = "text";
-            icon.classList.remove("bi-eye-slash");
-            icon.classList.add("bi-eye");
-
-        }
-        else{
-            target.type = "password";
-            icon.classList.remove("bi-eye");
-            icon.classList.add("bi-eye-slash");
-        }
-    });
-
-});
-
-// Update Password
-
-const update_btn = document.getElementById("update_btn");
-
 update_btn.addEventListener("click", async () => {
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
 
-    const password =
-    document.getElementById("password");
-
-    const confirmPassword =
-    document.getElementById("confirmPassword");
-
-    if(!password.value || !confirmPassword.value){
-
+    if (!password.value || !confirmPassword.value) {
         alert("Please fill all fields");
         return;
-
     }
 
-    if(password.value !== confirmPassword.value){
-
+    if (password.value !== confirmPassword.value) {
         alert("Passwords do not match");
         return;
-
     }
 
-    const { error } =
-    await client.auth.updateUser({
-        password: password.value
-    });
+    update_btn.disabled = true;
+    update_btn.innerText = "Updating...";
 
-    if(error){
-        alert(error.message);
-    }else{
-        alert("Password Updated Successfully");
-        window.location.href = "./index.html";
+    try {
+        // 1. Pehle Supabase Auth ka password update karein (Main Login ke liye)
+        const { data: authData, error: authError } = await client.auth.updateUser({
+            password: password.value
+        });
+
+        if (authError) {
+            alert("Auth Error: " + authError.message);
+            update_btn.disabled = false;
+            update_btn.innerText = "Update Password";
+            return; // Agar yahan error aaya toh aage nahi chalega
+        }
+
+        // 2. Ab aapke custom table mein password update karein (Sir ko dikhane ke liye)
+        // Yahan se logged-in user ki ID mil jayegi
+        const userId = authData.user.id; 
+
+        const { error: dbError } = await client
+            .from('your_table_name') // 👈 Yahan apne table ka sahi naam likhein (e.g., 'users' ya 'patients')
+            .update({ 
+                password: password.value // 👈 Yahan aapke table ka column naam (e.g., 'password')
+            })
+            .eq('id', userId); // User ki ID match kar rahe hain
+
+        if (dbError) {
+            alert("Database Table Error: " + dbError.message);
+            update_btn.disabled = false;
+            update_btn.innerText = "Update Password";
+        } else {
+            alert("Zabardast! Auth aur Table dono mein password update ho gaya.");
+            window.location.href = "./index.html";
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("An unexpected error occurred.");
+        update_btn.disabled = false;
+        update_btn.innerText = "Update Password";
     }
-
 });

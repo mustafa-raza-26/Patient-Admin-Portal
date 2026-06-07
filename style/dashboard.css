@@ -13,18 +13,14 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   Layout
-========================= */
+/* Layout */
 
 .dashboard-wrapper{
     display:flex;
     min-height:100vh;
 }
 
-/* =========================
-   Sidebar
-========================= */
+/* Sidebar */
  .sidebar{
     width:270px;
     background:#fff;
@@ -160,29 +156,22 @@ body{
     color:#64748b;
 }
 
-/* =========================
-   Main Content
-========================= */
+/* Main Content */
 
 .main-content{
     margin-left:270px;
     width:calc(100% - 270px);
 }
 
-/* =========================
-   Navbar
-========================= */
+/* Navbar */
 
 .topbar{
     background:white;
     border-bottom:1px solid #e5e7eb;
-
     height:80px;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     padding:0 25px;
 }
 
@@ -203,11 +192,8 @@ body{
     width:100%;
     border:none;
     outline:none;
-
     background:#f1f5f9;
-
     padding:12px 15px 12px 45px;
-
     border-radius:12px;
 }
 
@@ -220,12 +206,9 @@ body{
 .notification-btn{
     width:42px;
     height:42px;
-
     border:none;
     background:#f1f5f9;
-
     border-radius:50%;
-
     font-size:18px;
 }
 
@@ -244,9 +227,7 @@ body{
     color:#64748b;
 }
 
-/* =========================
-   Content
-========================= */
+/* Content */
 
 .content-area{
     padding:30px;
@@ -268,9 +249,7 @@ body{
     margin-bottom:0;
 }
 
-/* =========================
-   Stats Cards
-========================= */
+/* Starts Cards */
 
 .stats-card{
     background:white;
@@ -280,6 +259,10 @@ body{
     box-shadow:0 2px 12px rgba(0,0,0,.03);
 }
 
+.stats-card:hover{
+    transition: 0.4s;
+    box-shadow: 10px 10px 30px rgb(201, 201, 201);
+}
 .card-top{
     display:flex;
     justify-content:space-between;
@@ -336,9 +319,7 @@ body{
     color:#ea580c;
 }
 
-/* =========================
-   Charts
-========================= */
+/* Charts */
 
 .chart-card,
 .table-card,
@@ -367,9 +348,7 @@ body{
     height:300px !important;
 }
 
-/* =========================
-   Table
-========================= */
+/* Table */
 
 .table th{
     color:#64748b;
@@ -380,27 +359,7 @@ body{
 .table td{
     vertical-align:middle;
 }
-
-/* =========================
-   Doctor Availability
-========================= */
-
-.doctor-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:14px 0;
-    border-bottom:1px solid #f1f5f9;
-}
-
-.doctor-item:last-child{
-    border-bottom:none;
-}
-
-/* =========================
-   Mobile Menu Button
-========================= */
+/* Mobile Menu Button */
 
 .menu-btn{
     border:none;
@@ -408,9 +367,7 @@ body{
     font-size:28px;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* Responsive */
 
 @media(max-width:992px){
 
