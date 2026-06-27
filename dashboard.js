@@ -404,7 +404,7 @@ window.addEventListener('load', async () => {
     const { data: appointmentData, error: appointmentError } =
         await client
             .from('appoinmentForm')
-            .select('name, doctor, time')
+            .select('patient_Name, doctor, time,user_ID')
             .ilike('doctor', `%${cleanDoctorName}%`);
 
     if (appointmentError) {

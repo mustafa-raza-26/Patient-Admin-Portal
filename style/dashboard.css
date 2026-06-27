@@ -166,10 +166,13 @@ body{
 /* Navbar */
 
 .topbar{
+    width: 100%;
     background:white;
     border-bottom:1px solid #e5e7eb;
     height:80px;
     display:flex;
+    position: fixed;
+    z-index: 1;
     justify-content:space-between;
     align-items:center;
     padding:0 25px;
@@ -199,6 +202,7 @@ body{
 
 .topbar-right{
     display:flex;
+    width: 46%;
     align-items:center;
     gap:20px;
 }
@@ -231,6 +235,7 @@ body{
 
 .content-area{
     padding:30px;
+    padding-top: 120px;
 }
 
 .page-title{
