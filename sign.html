@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="sign.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/63fac70219.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary p-2">
+        <div class="container-fluid nn">
+            <a class="navbar-brand d-flex" href="index.html"><img src="img/logo.png" alt="logo" width="30px" height="30px"><h4>Patient Booking System</h4></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="appoinment.html">Appointments</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./about.html">About Us</a>
+                </li>
+                <li class="nav-item butt" id="login">
+                <a class="nav-link active" href="login.html">Login</a>
+                </li>
+                <li class="nav-item butt" id="log">
+                    <div class="logout">Logout</div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    
+
+    <div class="container">
+        <h1 class="p-0">Sign up</h1>
+        <div class="sig row justify-content-center d-block">
+        
+            <div class="mail col-12 col-md-9">
+            <label>Name:</label><br>
+                <span><input id="name" type="text" placeholder="Name" aria-required="true"></span>
+            </div>
+
+            <div class="mail col-12 col-md-9">
+            <label>Email:</label><br>
+                <span><input id="email" type="email" placeholder="Email" aria-required="true"></span>
+            </div>
+            
+            <div class="mail col-12 col-md-9">
+            <label>Password:</label><br>
+                <span><input id="password" type="password" placeholder="Password" aria-required="true"><i class="fa-regular fa-eye" id="eye"></i></span>
+            </div>
+            
+            <div class="mail col-12 col-md-9">
+            <label>Number:</label><br>
+                <span><input id="num" type="number" placeholder="Number" aria-required="true"></span>
+            </div>
+            <button id="signBtn" class="but col-6 col-md-3">Sign Up</button>
+            <div class="col-10 col-md-7">Alredy have an Account? <a href="login.html">Login</a></div>
+            <div class="row linkBtn">
+                <button id="googleBtn" class="col-3 col-md-5"><img src="img/google.webp=s96-fcrop64=1,00000000ffffffff-rw"width="40px"height="40px"></button>
+                <button id="fbBtn" class="col-3 col-md-5"><img src="img/fb.png"width="48px"height="48px"></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+    <script src="form.js"></script>
+    <script src="appoinment.js"></script>
+    <script src="sign.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

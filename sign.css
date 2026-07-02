@@ -1,0 +1,34 @@
+.container .sig{
+    padding-left: 400px;
+}
+.row .linkBtn{
+    width: 200px;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.linkBtn #googleBtn{
+    background-color: white;
+    transform: none;
+    border: none;
+}
+.linkBtn #fbBtn{
+    background-color: white;
+    transform: none;
+    border: none;
+}
+@media (max-width:769px) {
+    .container .sig{
+        margin: 1px;
+        padding: 2px;
+        padding-top: 5px;
+    }
+    .linkBtn .googleBtn{
+        padding: auto;
+        padding-right: 10px;    
+    }
+    .linkBtn .fbBtn{
+        padding: auto;
+        padding-right: 10px;
+    }
+}

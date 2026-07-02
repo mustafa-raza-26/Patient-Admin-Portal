@@ -1,0 +1,42 @@
+.container{
+    width: 100px;
+    max-width: 600px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 4rem;
+}
+.container .row{
+    padding: 20px;
+}
+.row .mail{
+    padding: 8px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+.mail label{
+    padding-bottom: 10px;
+}
+.mail span{
+    padding: 14px;
+    border: 2px solid rgb(206, 206, 206);
+}
+.mail span input{
+    padding: 8px;
+    border: none;
+}
+.mail span input:focus{
+    border: none;
+    outline: none;
+}
+.row button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid blue;
+    color: white;
+    background-color: blue;
+}
+button:hover{
+    transition: 0.3s;
+    transform: translatex(10px); 
+}
