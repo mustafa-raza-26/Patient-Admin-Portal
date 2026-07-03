@@ -1,0 +1,71 @@
+section>.container{
+    padding-top: 20px;
+}
+.options div:first-child{
+    margin-top: 10px;
+    padding: 15px 25px;
+    color: #fff;
+    border: 1px solid blue;
+    border-radius: 15px;
+    background: blue;
+}
+.options div{
+    margin-top: 10px;
+    padding: 15px 25px;
+    border: 1px solid #d4d8de;
+    border-radius: 15px;
+    color: black;
+    background: white;
+}
+.options div span{
+    padding-right: 10px;
+}
+.options div:hover{
+    background: #f5f7fa;
+}
+.profile-container{
+    padding: 25px;
+    border: 1px solid #d4d8de;
+    border-radius: 12px;
+    background-color: #fff;
+}
+.profile-info{
+    padding-left: 20px;
+}
+.image-section{
+    padding-top: 10px;
+}
+.extensions{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+
+.image{
+    width: 80px;
+    height: 80px;
+    border: none;
+    text-align: center;
+    align-content: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    background: blue;
+}
+.change{
+    margin-left: 10px;
+    padding:8px 18px;
+    width: 57%;
+    border: 1px solid blue;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    background-color: blue;
+}
+
+.row>div>div>input:focus, .row>div>div>textarea:focus, .row>div>div>select:focus{
+    border: 2px solid blue !important;
+    outline: none;
+    box-shadow: none;
+}

@@ -1,85 +1,132 @@
-let emailValue = document.getElementById('email');
-let passwordValue = document.getElementById('password');
-let eye = document.getElementById('eye');
-let loginBtn = document.getElementById('logBtn');
-let loginbut = document.getElementById('login');
-let logoutBtn = document.getElementById('log');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const login = document.getElementById('login');
+const togglePassword = document.getElementById('togglePassword');
+const forgot_password = document.getElementById('forgot_password');
+const loginError = document.getElementById('loginError');
 
-// ================= PASSWORD TOGGLE =================
-if (eye) {
-    eye.addEventListener('click', () => {
-        passwordValue.type = passwordValue.type === "password" ? 'text' : 'password';
-    });
-}
+togglePassword.addEventListener("click",()=>{
 
-// ================= CHECK AUTH =================
-async function checkAuth() {
-  const { data, error } = await client.auth.getSession();
-  const session = data?.session;
+    const type = password.getAttribute("type")==="password" ? "text" : "password";
+    password.setAttribute("type",type);
 
-  if (!loginbut || !logoutBtn) return;
+    togglePassword.classList.toggle("bi-eye");
+    togglePassword.classList.toggle("bi-eye-slash");
 
-  if (session) {
-    loginbut.style.display = "none";
-    logoutBtn.style.display = "inline-block";
-  } else {
-    loginbut.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-  }
-}
-
-checkAuth();
-
-// ================= LOGIN =================
-if (loginBtn) {
-  loginBtn.addEventListener('click', async () => {
-
-    if (!emailValue.value || !passwordValue.value) {
-      alert("Fill all fields");
-      return;
-    }
-
-    const { data, error } = await client.auth.signInWithPassword({
-      email: emailValue.value,
-      password: passwordValue.value
-    });
-
-    if (error) {
-      alert(error.message);
-      console.error(error);
-      return;
-    }
-
-    alert('You have logged in successfully!');
-    window.location.href = "./index.html";
-    // window.location.href = "https://mustafa-raza-26.github.io/Final-Test";
-  });
-}
-
-// ================= LOGOUT =================
-if (logoutBtn) {
-  logoutBtn.addEventListener('click', async () => {
-    const { error } = await client.auth.signOut();
-    if (error) {
-      console.error('Logout Error:', error.message);
-      return;
-    }
-    alert('You have logged out.');
-    window.location.href = "./login.html";
-    // window.location.href = "https://mustafa-raza-26.github.io/Final-Test/login.html";
-  });
-}
-
-// ================= REAL-TIME AUTH LISTENER =================
-client.auth.onAuthStateChange((event, session) => {
-  if (!loginbut || !logoutBtn) return;
-
-  if (session) {
-    loginbut.style.display = "none";
-    logoutBtn.style.display = "inline-block";
-    
-  } else {
-    loginbut.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-  }
 });
+
+function showSuccess() {
+  const msg = document.getElementById("successMessage");
+
+  msg.classList.add("show");
+
+  setTimeout(() => {
+    msg.classList.remove("show");
+    window.location.href = './dashboard.html';
+}, 2000);
+}
+
+login.addEventListener('click', async (e) => {
+    e.preventDefault();
+
+    if (email.value === '' && password.value === '') {
+        loginError.innerText = 'Validation Error Plz Fill All Fields';
+    } 
+    else if (email.value === '') {  
+        loginError.innerText = 'Validation Error Enter Your Email';
+    } 
+    else if (password.value === '') {
+        loginError.innerText = 'Validation Error Enter Your Password';
+    } 
+    else {
+        const { data, error } = await client.auth.signInWithPassword({
+            email: email.value,
+            password: password.value,
+        })
+        if (error) {
+            loginError.innerText = error.message;
+        }else{
+            showSuccess();   
+        }
+    }
+})
+
+window.onload = async () => {
+    const { data, error } = await client.auth.getSession();
+
+    if (error) {
+        console.log(error.message);
+        return;
+    }
+
+    if (data == null) {
+        
+    }else{
+        window.location.href = './dashboard.html'
+    }
+}
+
+
+
+
+
+// const email = document.getElementById('email');
+// const password = document.getElementById('password');
+// const login = document.getElementById('login');
+// const togglePassword = document.getElementById('togglePassword');
+// const loginError = document.getElementById('loginError');
+
+// // Toggle Password Visibility
+// togglePassword.addEventListener("click", () => {
+//     const type = password.getAttribute("type") === "password" ? "text" : "password";
+//     password.setAttribute("type", type);
+
+//     togglePassword.classList.toggle("bi-eye");
+//     togglePassword.classList.toggle("bi-eye-slash");
+// });
+
+// // Show Success Message & Redirect
+// function showSuccess() {
+//     const msg = document.getElementById("successMessage");
+//     msg.classList.add("show");
+
+//     setTimeout(() => {
+//         msg.classList.remove("show");
+//         window.location.href = './dashboard.html';
+//     }, 2000);
+// }
+
+// // Handle Login Submission
+// login.addEventListener('click', async (e) => {
+//     e.preventDefault();
+
+//     if (email.value === '' && password.value === '') {
+//         loginError.innerText = 'Validation Error Plz Fill All Fields';
+//     } 
+//     else if (email.value === '') {  
+//         loginError.innerText = 'Validation Error Enter Your Email';
+//     } 
+//     else if (password.value === '') {
+//         loginError.innerText = 'Validation Error Enter Your Password';
+//     } 
+//     else {
+//         const { data, error } = await client.auth.signInWithPassword({
+//             email: email.value,
+//             password: password.value,
+//         });
+
+//         if (error) {
+//             loginError.innerText = error.message;
+//         } else {
+//             showSuccess();   
+//         }
+//     }
+// });
+
+// // Check Session on Page Load (Prevents re-login if already authenticated)
+// window.addEventListener('DOMContentLoaded', async () => {
+//     const {data: { session }} = await client.auth.getSession();
+//     if (session) {
+//         window.location.href = './dashboard.html';
+//     }
+// });

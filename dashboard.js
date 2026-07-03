@@ -401,17 +401,13 @@ window.addEventListener('load', async () => {
         .replace(/^Dr\.\s*/i, '')
         .trim();
 
-    const { data: appointmentData, error: appointmentError } =
-        await client
-            .from('appoinmentForm')
-            .select('patient_Name, doctor, time,user_ID')
-            .ilike('doctor', `%${cleanDoctorName}%`);
+    const { data: appointmentData, error: appointmentError } = await client
+    .from('patientData')
+    .select('patient_Name, doctor_Name, date_time')
+    .ilike('doctor_Name', `%${cleanDoctorName}%`);
 
     if (appointmentError) {
-        console.log(
-            "Appointments fetch karne mein error:",
-            appointmentError.message
-        );
+        console.log("Appointments fetch karne mein error:", appointmentError.message);
         return;
     }
 
@@ -425,25 +421,19 @@ window.addEventListener('load', async () => {
 
         const doctorName = (item.doctor || '')
             .replace(/\s*\(.*?\)\s*/g, '');
-
-        let time12 = item.time;
-
-        try {
-            time12 = new Date(`1970-01-01T${item.time}`)
-                .toLocaleTimeString('en-US', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                    hour12: true
-                });
-        } catch (err) {
-            console.log("Time format error:", err);
-        }
+            
+        const date = new Date(item.date_time);
+        const time12 = date.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
 
         if (appoinments) {
             appoinments.innerHTML += `
                 <tr>
-                    <td>${item.name || ''}</td>
-                    <td>${doctorName}</td>
+                    <td>${item.patient_Name || ''}</td>
+                    <td>${item.doctor_Name}</td>
                     <td>${time12}</td>
                     <td>
                         <span class="badge bg-warning">

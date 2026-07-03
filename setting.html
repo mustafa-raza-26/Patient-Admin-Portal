@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="./style/dashboard.css">
+    <link rel="stylesheet" href="./style/settings.css">
+    <script src="https://kit.fontawesome.com/63fac70219.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./assest/images/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <img src="./assest/images/logo.png" alt="logo" width="30" height="30" style="background: white;">
+                </div>
+
+                <div>
+                    <h5 class="mb-0">HealthCare</h5>
+                    <small>Admin Portal</small>
+                </div>
+            </div>
+            <hr>
+            <ul class="sidebar-menu">
+
+                <li>
+                    <a href="./index.html"><i class="bi bi-grid"></i>Dashboard</a>
+                </li>
+
+                <li>
+                    <a href="./patient.html"><i class="bi bi-people"></i>Patients</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="bi bi-heart-pulse"></i>Doctors</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="bi bi-calendar-check"></i>Appointments</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="bi bi-credit-card"></i>Payments</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="bi bi-file-earmark-medical"></i>Medical Records</a>
+                </li>
+
+                <li>
+                    <a href="#"><i class="bi bi-bar-chart"></i>Reports</a>
+                </li>
+
+                <li>
+                    <a href="#" class="active"><i class="bi bi-gear"></i>Settings</a>
+                </li>
+            </ul>
+
+            <div class="admin-card">
+                <div class="avatar">RC</div>
+                <div>
+                    <h6 class="dr_name">Dr. Robert Chen</h6>
+                    <small>Administrator</small>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <main class="main-content">
+            <!-- Navbar -->
+            <nav class="topbar">
+                <button class="menu-btn d-lg-none">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search patients, doctors, appointments...">
+                </div>
+
+                <div class="topbar-right">
+                    <button class="notification-btn"><i class="bi bi-bell"></i></button>
+                    <div class="profile-box">
+                        <div class="avatar">RC</div>
+                        <div>
+                            <h6 class="dr_name">Dr. Robert Chen</h6>
+                            <small>Administrator</small>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <section class="content-area">
+                <div class="page-title">
+                    <div>
+                        <h2>Settings</h2>
+                        <p>Manage your account and system preferences</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-3 options mb-4">
+                            <div><span><i class="fa-regular fa-user"></i></span>Profile</div>
+                            <div><span><i class="fa-regular fa-bell"></i></span>Notification</div>
+                            <div><span><i class="fa-solid fa-lock"></i></span>Security</div>
+                            <div><span><i class="fa-solid fa-globe"></i></span>language</div>
+                            <div><span><i class="fa-solid fa-wallet"></i></span>Billing</div>
+                            <div><span><i class="fa-solid fa-database"></i></span>Data & Privacy</div>
+                        </div>
+                        <div class="col-12 col-md-8 container profile-container">
+                            <div class="row profile-info">
+                                <h5 class="py-3">Profile Information</h5>
+                                <div class="row col-12 col-md-12 col-lg-12 image-section d-flex justify-content-between align-items-center">
+                                    <div class="image col-4 col-md-2">DR</div>
+                                    <div class="select col-8 col-md-10 row">
+                                        <div class="change col-12 text-center col-md-5 col-lg-6 col-xl-4">Change Photo</div>
+                                        <div class="extensions">JPG, PNG or GIF. Max size 2MB.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container pt-5">
+
+                                <div class="row d-flex p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-50">
+                                        <div>First Name</div>
+                                        <div><input type="text" class="border p-2 rounded w-100" value="Robert" ></div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 w-50">
+                                        <div>Last Name</div>
+                                        <div><input type="text" class="border p-2 rounded w-100" value="Chen" ></div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-100">
+                                        <div>Email Address</div>
+                                        <div><input type="email" class="border p-2 rounded w-100" value="robert.chen@healthcare.com"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-100">
+                                        <div>Phone Number</div>
+                                        <div><input type="tel" class="border p-2 rounded w-100" value="+1 (555) 123-4567" ></div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-100">
+                                        <div>Role</div>
+                                        <div>
+                                            <select class="border p-2 rounded w-100" >
+                                            <option value="">Administrator</option>
+                                            <option value="">Doctor</option>
+                                            <option value="">Nurse</option>
+                                            <option value="">Receptionist</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-100">
+                                        <div>Department</div>
+                                        <div><input class="border p-2 rounded w-100" type="text" value="Neurology" ></div>
+                                    </div>
+                                </div>
+
+                                <div class="row p-2">
+                                    <div class="col-12 col-md-12 col-lg-12 w-100">
+                                        <div>Bio</div>
+                                        <div><textarea class="p-2 border rounded w-100" style="min-height: 100px;">Experienced neurologist with over 18 years of practice. Specialized in treating complex neurological disorders and brain injuries.</textarea></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <div>
+        <button id="logout">logout</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="supabase.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

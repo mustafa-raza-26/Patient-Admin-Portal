@@ -13,6 +13,10 @@ body{
     overflow-x:hidden;
 }
 
+.main-content{
+    background: #f5f7fa;
+}
+
 /* Layout */
 
 .dashboard-wrapper{
@@ -29,20 +33,18 @@ body{
     left:0;
     top:0;
     height:100vh;
-    padding:25px 15px;
+    padding-right: 10px;
     display:flex;
     flex-direction:column;
 }
 
 /* Sirf menu scroll hoga */
 .sidebar-menu{
-    list-style:none;
-    padding-left:0;
-    margin-top:35px;
     height:calc(100vh - 220px);
+    padding:25px 15px;
+    list-style:none;
     overflow-y:auto;
     overflow-x:hidden;
-    padding-right:10px;
 }
 
 /* Scrollbar Styling */
@@ -60,10 +62,13 @@ body{
 }
 
 .logo-area{
+    /* padding:0 10px; */
+    padding:10px 25px;
+    padding-top: 25px;
+    margin-bottom: 10px;
+    gap:12px;
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:0 10px;
 }
 
 .logo-icon{
@@ -101,6 +106,7 @@ body{
     border-radius:12px;
     transition:.3s;
     font-weight:500;
+    cursor: default;
 }
 
 .sidebar-menu a i{
@@ -109,7 +115,7 @@ body{
 
 .sidebar-menu a:hover{
     background:#eff6ff;
-    color:#2563eb;
+    /* color:#2563eb; */
 }
 
 .sidebar-menu a.active{

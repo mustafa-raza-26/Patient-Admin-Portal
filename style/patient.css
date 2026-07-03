@@ -1,6 +1,3 @@
-*{
-    /* border: 1px solid red; */
-}
 .main-content{
     background: #f5f7fa;
 }
@@ -60,9 +57,12 @@
 
 .patient-table tbody td{
     padding: 15px 20px;
+    max-width: 180px;
     text-align: center;
     font-size:18px;
     color:#64748b;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     border-bottom:1px solid #d9e0ea;
 }
 
@@ -85,4 +85,32 @@
 .patient-table h5{
     color:#1e293b;
     line-height:1.5;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Scrollbar Width */
+.table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+/* Scrollbar Track */
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Scrollbar Thumb */
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+/* Hover */
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
